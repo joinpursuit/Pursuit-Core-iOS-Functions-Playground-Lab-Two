@@ -4,7 +4,17 @@ import UIKit
 
 // Write a function named average(of:) that returns the average of an array of Doubles
 
-// Your function here
+// Answer:
+
+func average(of grades: [Double]) -> Double {
+    var sum = 0.0
+    for grade in grades{
+        sum += grade
+    }
+    var average: Double
+    average = sum/Double(grades.count) // Doubles cant be divided by an Int, I had to cast it 
+    return average
+}
 
 let testCasesOne: [([Double], Double)] = [
     (input: [1,2,3,4,5], expectedOutput: 3),
@@ -13,10 +23,10 @@ let testCasesOne: [([Double], Double)] = [
     (input: [1.5, 2.25, 4.5, -1.5], expectedOutput: 1.6875),
 ]
 
-//for (input, expectedOutput) in testCasesOne {
-//    let output = average(of: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesOne {
+    let output = average(of: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 // Question Two
 
