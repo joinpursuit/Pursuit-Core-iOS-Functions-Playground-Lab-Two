@@ -13,6 +13,16 @@ let testCasesOne: [([Double], Double)] = [
     (input: [1.5, 2.25, 4.5, -1.5], expectedOutput: 1.6875),
 ]
 
+func average(of: [Double]) -> Double {
+    let array1: Array = [Double()]
+    let sum = array1.reduce(0, +)
+    let average = sum / array1.count
+    return average
+    }
+let array1 = [1,2,3,4,5]
+print(average)
+
+
 //for (input, expectedOutput) in testCasesOne {
 //    let output = average(of: input)
 //    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
@@ -29,6 +39,7 @@ let testCasesTwo: [(String, [Character: Int])] = [
     (input: "aaaaaAAA", expectedOutput: ["a": 5, "A":3]),
     (input: "More words", expectedOutput: ["M": 1, "o": 2, "r": 2, "e": 1, " ": 1, "w": 1, "d": 1, "s": 1])
 ]
+
 
 //for (input, expectedOutput) in testCasesTwo {
 //    let output = frequencyDictionary(of: input)
