@@ -34,26 +34,6 @@ for (input, expectedOutput) in testCasesOne {
 
 // Answer:
 
-// Idea: cast the string to a set so it only contains unique letters and then loop through the string and count each character
-
-var str = "Hello"
-var stringAsSet = Set(str)
-//print(stringAsSet)
-var dict: [String: Int] = [:]
-
-
-for letter in stringAsSet {
-    
-    var counter = 0
-    for char in str {
-        if letter == char {
-            counter += 1
-        }
-    }
-    dict[String(letter)] = counter
-    
-}
-
 // print(dict) // IT WORKED!!!!!
 
 
@@ -112,8 +92,11 @@ for (input, expectedOutput) in testCasesTwo {
 
 func fizzBuzz(upto number :Int) -> [String] {
  
-   /*  let numArray = Array(1...number)
-    var stringArray = numArray.map { String($0) }
+   /*
+     THIS WAY DID NOT WORK AND IDK WHY.
+      
+     let numArray = Array(1...number)
+     var stringArray = numArray.map { String($0) }
     
     for num in numArray {
         if num % 3 == 0 && num % 5 == 0 {
@@ -164,6 +147,23 @@ for (input, expectedOutput) in testCasesThree {
 
 // Your function here
 
+func value(_ num: Double, isGreaterThanAverageOf: [Double]) -> Bool {
+    let average: Double
+    var sum = 0.0
+    var isGreater = false
+
+    for num in isGreaterThanAverageOf {
+        sum += num
+    }
+    average = sum/Double(isGreaterThanAverageOf.count)
+    
+    if num > average {
+        isGreater = true
+    }
+    
+    return isGreater
+}
+
 let testCasesFour = [
     (inputOne: 4.0, inputTwo: [1.0,2,3,4,5], expectedOutput: true),
     (inputOne: 2, inputTwo: [1,2,3,4,5], expectedOutput: false),
@@ -172,10 +172,10 @@ let testCasesFour = [
     (inputOne: 105.4, inputTwo: [1,42,1,541,42,5], expectedOutput: true),
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesFour {
-//    let output = value(inputOne, isGreaterThanAverageOf: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo), but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesFour {
+    let output = value(inputOne, isGreaterThanAverageOf: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo), but got \(output)")
+}
 
 // Question Five
 
