@@ -111,6 +111,25 @@ for (input, expectedOutput) in testCasesThree {
 
 // Your function here
 
+func value(isGreaterThanAverageOf: Double, arr:[Double]) -> Bool {
+    var greaterThenAverage = Bool()
+    var averageOfArray = arr.reduce(0, +) / Double(arr.count)
+    switch greaterThenAverage{
+    case isGreaterThanAverageOf > averageOfArray:
+       greaterThenAverage = true
+    default:
+        greaterThenAverage = false
+    }
+//    if isGreaterThanAverageOf > averageOfArray {
+//        greaterThenAverage == true
+//    } else if isGreaterThanAverageOf < averageOfArray {
+//        greaterThenAverage == false
+//    }
+    return greaterThenAverage
+}
+let greaterThenaverageNumber = value(isGreaterThanAverageOf: 4.0, arr: [1.0,2,3,4,5])
+print(greaterThenaverageNumber)
+
 let testCasesFour = [
     (inputOne: 4.0, inputTwo: [1.0,2,3,4,5], expectedOutput: true),
     (inputOne: 2, inputTwo: [1,2,3,4,5], expectedOutput: false),
@@ -119,16 +138,22 @@ let testCasesFour = [
     (inputOne: 105.4, inputTwo: [1,42,1,541,42,5], expectedOutput: true),
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesFour {
-//    let output = value(inputOne, isGreaterThanAverageOf: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo), but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesFour {
+    let output = value(isGreaterThanAverageOf: inputOne, arr: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo), but got \(output)")
+}
 
 // Question Five
 
 // Write a function that finds the second smallest Int an an array of Ints
 
 // Your function here
+func secondSmallestValue(input:[Int]) -> Int {
+    let number = input.sorted()[1]
+    return number
+}
+let myNumber = secondSmallestValue(input: [40,253,680,750,64,126,4,471,706,757,899,856,617,169,697,755,36,426,973,107,299,360,201,313,801,61,241,911,992,354,108,341,170,949,333,937,933,512,568,379,995,29,637,417,793,763,47,387,166,135,259,400,406,141,271,194,263,171,992,508,953,176,990,544,491,488,691,406,911,751,519,732,907,403,328,110,348,669,112,719,852,671,447,619,928,847,630,711,371,143,277,405,210,266,241,379,265,213,331,780])
+print(myNumber)
 
 let testCasesFive = [
     (input: [1,2,3,4], expectedOutput: 2),
@@ -138,7 +163,7 @@ let testCasesFive = [
     (input: [807,909,-22,424,244,873,-907,-350,-780,576,-177,278,-855,296,-33,-609,-664,-126,-469,-57,-376,-424,-477,-795,-481,-806,545,727,-879,210,-114,-783,-156,45,781,369,35,900,904,-2,168,489,-329,608,-287,40,442,362,-560,236,-583,698,544,-154,478,535,-397,363,470,-49,49,631,-62,-293,-419,-528,753,-809,-48,-888,606,-889,-908,672,-783,-921,-198,-428,701,-30,106,500,-106,199,-793,392,873,330,366,45,840,649,-135,-850,174,-338,901,-753,402,-62,554,-579,863,955,-999,-13,851,760,-523,-968,225,-173,-605,-759,306,657,844,168,-270,883,963,-835,624,570,705,333,-293,283,382,926,839,264,602,-940,160,-369,-770,-792,722,321,88,-176,-911,203,486,-175,-529,187,-668,518,-282,162,-165,-34,544,538,-828,-562,-154,591,345,-241,962,801,-632,-921,-710,588,-642,113,128,-242,56,716,-709,232,-870,241,-612,-583,-199,762,-601,-410,-896,-493,664,531,-613,-285,-951,-589,243,819,-195,911,-701,-368,-85,-316], expectedOutput: -968)
 ]
 
-//for (input, expectedOutput) in testCasesFive {
-//    let output = secondSmallestValue(in: input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesFive {
+    let output = secondSmallestValue(input: input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
